@@ -63,6 +63,11 @@ generate-images:
 pull:
 	@$(MAKE) check-images
 	@echo "Pulling images from $(IMAGES_FILE)..."
+	# 登录源仓库（如果配置了源仓库账号密码）
+	@if [ -n "$(SOURCE_USERNAME)" ] && [ -n "$(SOURCE_PASSWORD)" ]; then
+		@echo "Logging in to source registry..."
+		@docker login -u $(SOURCE_USERNAME) -p $(SOURCE_PASSWORD) $(SOURCE_REGISTRY) 2>/dev/null || true
+	fi
 	@while read -r IMAGE; do
 		@echo "Pulling $$IMAGE..."
 		docker pull "$$IMAGE"
