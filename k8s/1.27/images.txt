@@ -1,0 +1,6 @@
+coredns/coredns:v1.10.1
+k8s.gcr.io/kube-apiserver:v.0
+k8s.gcr.io/kube-controller-manager:v.0
+k8s.gcr.io/kube-proxy:v.0
+k8s.gcr.io/kube-scheduler:v.0
+k8s.gcr.io/pause:3.9
